@@ -48,7 +48,7 @@ export const getProfile = async (req, res) => {
         user: req.user._id,
         name: req.user.name || "",
       });
-      await profile.save(); // Fetch again with populate
+      await profile.save(); 
       profile = await Profile.findById(profile._id).populate(
         "user",
         "name email userId role"
@@ -110,21 +110,16 @@ export const getProfile = async (req, res) => {
           "⚠️ Profile picture in DB doesn't exist on disk:",
           profileData.profilePicture
         );
-        profileData.profilePicture = null; // Clear if file is missing
+        profileData.profilePicture = null; 
       }
     }
-
-    console.log(
-      "📷 Sending profile with profilePicture:",
-      profileData.profilePicture
-    );
 
     res.json({
       profile: {
         ...profileData,
-        name: profile.user?.name || profile.name, // fallback
+        name: profile.user?.name || profile.name, 
         email: profile.user?.email,
-        userId: profile.user?.userId, // send custom userId
+        userId: profile.user?.userId, 
         role: profile.user?.role,
       },
       steps: requiredSteps,
@@ -145,7 +140,7 @@ export const uploadResume = async (req, res) => {
     }
 
     const filename = req.file.filename;
-    const webPath = `/uploads/resumes/${filename}`; // This is the correct relative path
+    const webPath = `/uploads/resumes/${filename}`; 
 
     let profile = await Profile.findOne({ user: req.user._id });
 
@@ -219,7 +214,6 @@ export const uploadProfilePicture = async (req, res) => {
     }
 
     await profile.save();
-    console.log("✅ Profile picture saved to DB:", webPath);
 
     res.json({
       message: "Profile picture uploaded successfully",

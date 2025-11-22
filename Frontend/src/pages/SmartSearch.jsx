@@ -166,9 +166,7 @@ const ProfileModal = ({ profile, onClose }) => {
     </div>
   );
 };
-// --- End Profile Modal Components ---
 
-// --- NEW UI COMPONENTS ---
 const ApplicantCard = ({ applicant, onViewProfile }) => {
   const [avatarError, setAvatarError] = useState(false);
   

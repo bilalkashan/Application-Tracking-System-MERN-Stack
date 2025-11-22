@@ -39,7 +39,7 @@ export const getLifecycleReport = async (req, res) => {
       stats: {
         totalApplicants: allApplications.length,
       },
-      hiredApplication: hiredApp || null, // Send the full hired app object, or null
+      hiredApplication: hiredApp || null, 
     });
 
   } catch (error) {
