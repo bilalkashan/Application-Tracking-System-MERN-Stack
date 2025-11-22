@@ -299,7 +299,7 @@ const EmptyState = ({ query }) => (
     <p className="text-sm sm:text-base text-gray-500 max-w-md">
       {query 
         ? "Try a different keyword or check your spelling. We show only external applicants, not internal MMCL staff." 
-        : "Search above to find external applicants by skills, university, name, and more. Only non-MMCL email holders are displayed."
+        : "Search above to find external applicants by skills, university, name, and more."
       }
     </p>
   </div>
